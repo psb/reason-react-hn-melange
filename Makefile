@@ -35,12 +35,10 @@ build_verbose: ## Build the project
 
 .PHONY: serve
 serve: ## Serve the application with a local HTTP server
-	# npm run serve
 	npm run dev
 
 .PHONY: bundle
 bundle: ## Bundle the JavaScript application
-	# npm run bundle
 	npm run build
 
 .PHONY: clean
