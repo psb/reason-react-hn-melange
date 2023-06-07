@@ -1,0 +1,6 @@
+# Ignore all files.
+*.*
+# Unignore js, html and css
+!*.html
+!*.js
+!*.css
