@@ -28,17 +28,23 @@ install: ## Install development dependencies
 .PHONY: build
 build: ## Build the project
 	$(DUNE) build @react @node
+	npm run build
 
 .PHONY: build_verbose
 build_verbose: ## Build the project
 	$(DUNE) build --verbose @react @node
+	npm run build
 
-.PHONY: serve
-serve: ## Serve the application with a local HTTP server
+.PHONY: dev
+dev: ## Serve the application with a local HTTP server
 	npm run dev
 
+.PHONY: preview
+preview: ## Preview the built JS
+	npm run preview
+
 .PHONY: bundle
-bundle: ## Bundle the JavaScript application
+bundle: ## Bundle the JS
 	npm run build
 
 .PHONY: clean
