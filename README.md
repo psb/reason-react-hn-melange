@@ -12,14 +12,14 @@ make init
 
 # In separate terminals:
 make watch
-make dev
+make vite
 ```
 
 ### React
 
 React support is provided by
 [`reason-react`](https://github.com/reasonml/reason-react/). The entry
-point of the sample React app is [`src/ReactApp.re`](src/ReactApp.re).
+point of the sample React app is [`src/Index.re`](src/Index.re).
 
 ## Commands
 
@@ -31,8 +31,8 @@ are a few of the most useful ones:
 - `make install`: install OCaml, Melange and JavaScript dependencies
 - `make watch`: watch for the filesystem and have Melange rebuild on every
   change
-- `make dev`: serve the application with a local HTTP server
-- `make preview`: build the JS and serve the application with a local HTTP server
+- `make vite`: serve the JS application with a local HTTP server
+- `make vite_preview`: build the JS and serve the built JS application with a local HTTP server
 
 ## JavaScript output
 
@@ -47,16 +47,14 @@ field:
 - The React app JavaScript files will be placed in `_build/default/src/output/*`.
 - The NodeJS app JavaScript files will be placed in `_build/default/src/node/*`.
 
-So for example, [`src/Hello.ml`](src/Hello.ml) (using OCaml syntax) can be run with
-`node`:
+So for example, [`src/Hello.ml`](src/Hello.ml) (using OCaml syntax) can be run with `node`:
 
 ```bash
 node _build/default/src/node/src/Hello.js
 ```
 
-Similarly, `_build/default/src/output/src/ReactApp.js` can be passed as entry to a bundler
-like Webpack:
+`_build/default/src/output/src/Index.js` in the `index.html` is used as the entry point for Vite.
 
-```bash
-webpack --mode production --entry ./_build/default/src/output/src/ReactApp.js
-```
+### Fast refresh
+
+Write `rei` interface files for each
