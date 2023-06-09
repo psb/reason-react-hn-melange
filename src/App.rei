@@ -1,2 +1,2 @@
 [@react.component]
-let make: (~name: string) => React.element;
+let make: (~text: string) => React.element;
