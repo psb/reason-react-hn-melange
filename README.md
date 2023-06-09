@@ -1,4 +1,6 @@
-# melange-opam-template
+# melange-opam-template (ReasonReact, Vite, Tailwind)
+
+Forked from this [original template](https://github.com/melange-re/melange-opam-template) and changed to use Vite and Tailwind. This template uses only Reason syntax and not OCaml.
 
 A simple project template using [Melange](https://github.com/melange-re/melange)
 with [opam](https://opam.ocaml.org/).
@@ -15,11 +17,13 @@ make watch
 make vite
 ```
 
-### React
+## React
 
-React support is provided by
-[`reason-react`](https://github.com/reasonml/reason-react/). The entry
-point of the sample React app is [`src/Index.re`](src/Index.re).
+React support is provided by [`reason-react`](https://github.com/reasonml/reason-react/). The entry point of the sample React app is [`src/Index.re`](src/Index.re).
+
+### Fast refresh
+
+To enable React fast refresh, write `.rei` interface files for each component.
 
 ## Commands
 
@@ -31,30 +35,14 @@ are a few of the most useful ones:
 - `make install`: install OCaml, Melange and JavaScript dependencies
 - `make watch`: watch for the filesystem and have Melange rebuild on every
   change
-- `make vite`: serve the JS application with a local HTTP server
-- `make vite_preview`: build the JS and serve the built JS application with a local HTTP server
+- `make dev`: serve the JS application with a local HTTP server
+- `make preview`: build the JS and serve the built JS application with a local HTTP server
 
 ## JavaScript output
 
 Since Melange just compiles source files into JavaScript files, it can be used
 for projects on any JavaScript platform - not just the browser.
 
-The template includes two `melange.emit` stanza for two separate apps. This
-stanza tells Dune to generate JavaScript files using Melange, and specifies in
-which folder the JavaScript files should be placed, by leveraging the `target`
-field:
-
-- The React app JavaScript files will be placed in `_build/default/src/output/*`.
-- The NodeJS app JavaScript files will be placed in `_build/default/src/node/*`.
-
-So for example, [`src/Hello.ml`](src/Hello.ml) (using OCaml syntax) can be run with `node`:
-
-```bash
-node _build/default/src/node/src/Hello.js
-```
+_This template includes just one `melange.emit` stanza and not the two stanzas from the original template. Please refer to the original template to see how to output JS code for the browser and node using two separate stanzas._
 
 `_build/default/src/output/src/Index.js` in the `index.html` is used as the entry point for Vite.
-
-### Fast refresh
-
-Write `rei` interface files for each
