@@ -1,0 +1,4 @@
+(library
+ (name story)
+ (libraries bs_json)
+ (modes melange))

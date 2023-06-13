@@ -1,7 +1,7 @@
 (melange.emit
  (target output)
  (alias react)
- (libraries melange reason-react texts)
+ (libraries melange reason-react story)
  (preprocess
   (pps reactjs-jsx-ppx))
  (module_systems es6))
