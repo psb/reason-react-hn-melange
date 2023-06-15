@@ -31,7 +31,7 @@ type comment =
   | CommentPresent(comment_present)
   | CommentDeleted(comment_deleted);
 
-type comments_map = Map.Int.t(comment);
+type comments_map = Belt.Map.Int.t(comment);
 
 type story_with_comments = {
   by: string,
@@ -50,7 +50,6 @@ type top_stories = array(story);
 
 module Decode = {
   let idsArray = (json): array(int) => Json.Decode.(json |> array(int));
-
   let getCommentId = comment =>
     switch (comment) {
     | CommentDeleted(c) => c.id

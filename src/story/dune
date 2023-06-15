@@ -1,4 +1,4 @@
 (library
  (name story)
- (libraries bs_json)
+ (libraries bs_json bs__fetch)
  (modes melange))

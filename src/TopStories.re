@@ -38,7 +38,7 @@ let make = () => {
     let nearTheBottom = () => distanceFromBottom() < 100;
     let loadNextPage = () =>
       if (state.page < 4) {
-        StoryData.fetchTopStories(state.page, payload =>
+        Story.Data.fetchTopStories(state.page, payload =>
           dispatch(Loaded(payload))
         )
         |> ignore;

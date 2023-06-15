@@ -9,8 +9,8 @@
  node_modules
  ; (vendored_dirs @glennsl @rescript bs-fetch bs-webapi)
  ; (dirs @glennsl @rescript bs-fetch bs-webapi)
- (vendored_dirs @glennsl)
- (dirs @glennsl)
+ (vendored_dirs @glennsl bs-fetch)
+ (dirs @glennsl bs-fetch)
  (subdir
   @glennsl
   (subdir
@@ -20,4 +20,13 @@
     (library
      (name bs_json)
      (wrapped false)
-     (modes melange))))))
+     (modes melange)))))
+ (subdir
+  bs-fetch
+  (subdir
+   src
+   (library
+    ; double underscore to not match the module Bs_fetch so that Fetch__Iterator is exposed
+    (name bs__fetch)
+    (wrapped false)
+    (modes melange)))))
