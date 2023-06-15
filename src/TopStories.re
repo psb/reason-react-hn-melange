@@ -35,7 +35,7 @@ let make = () => {
   });
 
   React.useEffect(() => {
-    let nearTheBottom = () => distanceFromBottom() < 100;
+    let nearTheBottom = () => Utils.distanceFromBottom() < 100;
     let loadNextPage = () =>
       if (state.page < 4) {
         Story.Data.fetchTopStories(state.page, payload =>
@@ -58,7 +58,7 @@ let make = () => {
     );
   });
 
-  <div>
+  <div className="divide-y">
     {if (Array.length(state.topStories) > 0) {
        state.topStories
        ->(

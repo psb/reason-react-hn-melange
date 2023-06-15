@@ -7,67 +7,61 @@
 [@react.component]
 let make = (~story: Story.Data.story, ~index: int) => {
   let renderIndex = () =>
-    <aside className="StoryListItem_storyIndex">
-      {React.string(string_of_int(index + 1))}
+    <aside className="mr-2">
+      {React.string(string_of_int(index + 1) ++ ".")}
     </aside>;
   let renderTitle = () => {
     let content = React.string(story.title);
-    <header className="StoryListItem_storyTitle">
+    <header className="text-lg font-semibold">
       {switch (story.url) {
-       | Some(url) =>
-         <a href=url className="StoryListItem_link" target="_blank">
-           content
-         </a>
+       | Some(url) => <a href=url className="" target="_blank"> content </a>
        | None =>
-         <Link
-           href={"/comments/" ++ string_of_int(story.id)}
-           className="StoryListItem_link">
+         <Link href={"/comments/" ++ string_of_int(story.id)} className="">
            content
          </Link>
        }}
     </header>;
   };
   let renderByline = () =>
-    <div className="StoryListItem_row StoryListItem_byline">
+    <div className="">
       /* TODO: badge */
 
-        <span className="StoryListItem_number">
+        <span className="">
           <b> {React.string(string_of_int(story.score))} </b>
           {React.string(" points")}
         </span>
-        <span className="StoryListItem_storyTime">
-          {let time = story.time;
+        <span className="text-xs text-slate-400">
+          {let time = story.time |> Utils.fromNow;
            let by = story.by;
            React.string({j| submitted $time by $by|j})}
         </span>
       </div>;
   let renderArticleButton = () =>
-    <div className="StoryListItem_flexRow">
+    <div className="flex grow">
       {renderIndex()}
-      <div className="StoryListItem_storyCell">
-        {renderTitle()}
-        {renderByline()}
-      </div>
+      <div className=""> {renderTitle()} {renderByline()} </div>
     </div>;
   let renderCommentsButton = () =>
-    <div className="StoryListItem_commentsCell">
-      <Link
-        href={"/comments/" ++ string_of_int(story.id)}
-        className="StoryListItem_link">
-        <div
-          // <img alt="comments" className="StoryListItem_icon" src=commentIcon />
-        />
+    <div className="flex w-24 justify-center">
+      <Link href={"/comments/" ++ string_of_int(story.id)}>
         <div>
-          <span className="StoryListItem_commentsText">
-            <span className="StoryListItem_number">
-              {React.string(string_of_int(story.descendants))}
-            </span>
-            {React.string(" comments")}
+          <img
+            alt="comments"
+            className="mx-auto"
+            width="40"
+            src="comment.svg"
+          />
+        </div>
+        <div className="text-xs">
+          <span className="font-bold">
+            {React.string(string_of_int(story.descendants))}
           </span>
+          {React.string(" comments")}
         </div>
       </Link>
     </div>;
-  <div className="StoryListItem_itemRow">
+
+  <div className="flex flex-row py-2">
     {renderArticleButton()}
     {renderCommentsButton()}
   </div>;
