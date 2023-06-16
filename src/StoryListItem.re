@@ -1,9 +1,3 @@
-// open Utils;
-
-// requireCSS("src/StoryListItem.css");
-
-// let commentIcon = requireAssetURI("src/comment.png");
-
 [@react.component]
 let make = (~story: Story.Data.story, ~index: int) => {
   let renderIndex = () =>
