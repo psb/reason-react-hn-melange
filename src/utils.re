@@ -18,10 +18,10 @@ let fromNow = unixtime => {
   };
 };
 
-// [@bs.send] [@bs.return nullable]
-// external getAttribute: (Js.t('a), string) => option(string) = "getAttribute";
+[@bs.send] [@bs.return nullable]
+external getAttribute: (Js.t('a), string) => option(string) = "getAttribute";
 
-// let dangerousHtml: string => Js.t('a) = html => {"__html": html};
+let dangerousHtml: string => Js.t('a) = html => {"__html": html};
 
 let distanceFromBottom: unit => int =
   () => {

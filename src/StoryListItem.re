@@ -14,32 +14,29 @@ let make = (~story: Story.Data.story, ~index: int) => {
     let content = React.string(story.title);
     <header className="text-lg font-semibold">
       {switch (story.url) {
-       | Some(url) => <a href=url className="" target="_blank"> content </a>
+       | Some(url) => <a href=url target="_blank"> content </a>
        | None =>
-         <Link href={"/comments/" ++ string_of_int(story.id)} className="">
-           content
-         </Link>
+         <Link href={"/comments/" ++ string_of_int(story.id)}> content </Link>
        }}
     </header>;
   };
   let renderByline = () =>
-    <div className="">
-      /* TODO: badge */
-
-        <span className="">
-          <b> {React.string(string_of_int(story.score))} </b>
-          {React.string(" points")}
-        </span>
-        <span className="text-xs text-slate-400">
-          {let time = story.time |> Utils.fromNow;
-           let by = story.by;
-           React.string({j| submitted $time by $by|j})}
-        </span>
-      </div>;
+    <div>
+      <span>
+        <b> {React.string(string_of_int(story.score))} </b>
+        {React.string(" points")}
+      </span>
+      <span className="text-xs text-slate-400">
+        {let time = story.time |> Utils.fromNow;
+         let by = story.by;
+         React.string({j| submitted $time by $by|j})}
+      </span>
+    </div>;
+  /* TODO: badge */
   let renderArticleButton = () =>
     <div className="flex grow">
       {renderIndex()}
-      <div className=""> {renderTitle()} {renderByline()} </div>
+      <div> {renderTitle()} {renderByline()} </div>
     </div>;
   let renderCommentsButton = () =>
     <div className="flex w-24 justify-center">

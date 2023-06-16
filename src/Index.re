@@ -8,12 +8,10 @@ external createRoot: Dom.element => root = "createRoot";
 ReactDOM.querySelector("#root")
 ->(
     fun
-    // | Some(root) => ReactDOM.render(<App />, root)
     | Some(root) => {
         let rootNode = createRoot(root);
         render(rootNode, <App />);
       }
-
     | None =>
       Js.Console.error(
         "Failed to start React: couldn't find the #root element",
