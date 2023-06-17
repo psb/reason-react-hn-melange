@@ -1,11 +1,11 @@
 opam-version: "2.0"
-synopsis: "Melange project"
-description: "Minimal melange project"
-maintainer: ["<your_name>"]
-authors: ["<your_name>"]
+synopsis: "Reason React HN App with Melange"
+description: "A port of the original Reason React Hacker News app to use Melange"
+maintainer: ["Paul Bacchus"]
+authors: ["Paul Bacchus, and the contributors to the original app"]
 license: "MIT"
-homepage: "https://github.com/your/project"
-bug-reports: "https://github.com/your/project/issues"
+homepage: "https://github.com/psb/reason-react-hn-melange"
+bug-reports: "https://github.com/psb/reason-react-hn-melange/issues"
 depends: [
   "ocaml" {>= "4.14.0" & < "5.0.0"}
   "reason" {>= "3.8.1" & < "4.0.0"}
@@ -18,7 +18,7 @@ depends: [
   "odoc" {with-doc}
   "ocamlformat" {with-dev-setup}
 ]
-dev-repo: "git+https://github.com/your/project.git"
+dev-repo: "git+https://github.com/psb/reason-react-hn-melange.git"
 pin-depends: [
   [ "reason-react.dev" "git+https://github.com/reasonml/reason-react.git#97d31755c8d24fab13d6b60a3980505c917c1244" ]
 ]

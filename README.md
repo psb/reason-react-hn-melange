@@ -1,29 +1,20 @@
-# melange-opam-template (ReasonReact, Vite, Tailwind)
+# Reason React Hacker News with Melange
 
-Forked from this [original template](https://github.com/melange-re/melange-opam-template) and changed to use Vite and Tailwind. This template uses only Reason syntax and not OCaml.
+A port of the [original Reason React Hacker News](https://github.com/reasonml-community/reason-react-hacker-news) using [Melange](https://melange.re/v1.0.0/) to compile [Reason](https://reasonml.github.io/en/) to JS. Also using [Vite](https://vitejs.dev/) and [Tailwind](https://tailwindcss.com/).
 
-A simple project template using [Melange](https://github.com/melange-re/melange)
-with [opam](https://opam.ocaml.org/).
+The port was pretty straight forward and only a small amount had to be changed to get the app up and running. The app is running at:
 
-If you are looking for a template with esy, check [melange-esy-template](https://github.com/melange-re/melange-esy-template).
+## Running locally
 
-## Quick Start
+After [getting up and running with OCaml](https://ocaml.org/docs/up-and-running), clone this repo and:
 
 ```shell
-make init
+make init #(setup local opam switch; install OCaml and npm packages)
 
 # In separate terminals:
-make watch
-make vite
+make watch #(compile the Reason files to JS and watch for changes)
+make dev   #(runs 'npm run dev', i.e., the vite dev server)
 ```
-
-## React
-
-React support is provided by [`reason-react`](https://github.com/reasonml/reason-react/). The entry point of the sample React app is [`src/Index.re`](src/Index.re).
-
-### Fast refresh
-
-To enable React fast refresh, write `.rei` interface files for each component.
 
 ## Commands
 
@@ -36,13 +27,11 @@ are a few of the most useful ones:
 - `make watch`: watch for the filesystem and have Melange rebuild on every
   change
 - `make dev`: serve the JS application with a local HTTP server
-- `make preview`: build the JS and serve the built JS application with a local HTTP server
+- `make bundle`: bundles the JS into the `dist` folder
+- `make preview`: serve the bundled JS application with a local HTTP server
 
 ## JavaScript output
 
-Since Melange just compiles source files into JavaScript files, it can be used
-for projects on any JavaScript platform - not just the browser.
-
-_This template includes just one `melange.emit` stanza and not the two stanzas from the original template. Please refer to the original template to see how to output JS code for the browser and node using two separate stanzas._
+`_build/default/src/output/` is the output directory for the JS.
 
 `_build/default/src/output/src/Index.js` in the `index.html` is used as the entry point for Vite.
