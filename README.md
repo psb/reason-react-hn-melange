@@ -2,7 +2,7 @@
 
 A port of the [original Reason React Hacker News](https://github.com/reasonml-community/reason-react-hacker-news) using [Melange](https://melange.re/v1.0.0/) to compile [Reason](https://reasonml.github.io/en/) to JS. Also using [Vite](https://vitejs.dev/) and [Tailwind](https://tailwindcss.com/).
 
-The port was pretty straight forward and only a small amount had to be changed to get the app up and running. The app is running at:
+The port was pretty straight forward and only a small amount had to be changed to get the app up and running. The app is running at: [https://reason-react-hn-melange.netlify.app/](https://reason-react-hn-melange.netlify.app/)
 
 ## Running locally
 
