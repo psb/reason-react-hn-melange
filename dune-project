@@ -2,20 +2,21 @@
 
 (using melange 0.1)
 
-(name melange-opam-template)
+(name reason-react-hn-melange)
 
 (license "MIT")
 
-(maintainers <your_name>)
+(maintainers Paul Bacchus)
 
-(authors <your_name>)
+(authors Paul Bacchus)
 
-(homepage https://github.com/your/project)
+(homepage https://github.com/psb/reason-react-hn-melange)
 
-(bug_reports https://github.com/your/project/issues)
+(bug_reports https://github.com/psb/reason-react-hn-melange/issues)
 
 (package
  (allow_empty)
- (name melange-opam-template)
- (synopsis "Melange project")
- (description "Minimal melange project"))
+ (name reason-react-hn-melange)
+ (synopsis "Reason React Hacker News with Melange")
+ (description
+  "A port of the original Reason React Hacker News app to use Melange"))
