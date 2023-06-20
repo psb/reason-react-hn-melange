@@ -1,17 +1,10 @@
 (subdir
  node_modules
- (dirs @glennsl bs-fetch bs-webapi)
+ (dirs @glennsl bs-webapi)
  (subdir
   @glennsl/bs-json/src
   (library
    (name bs_json)
-   (wrapped false)
-   (modes melange)))
- (subdir
-  bs-fetch/src
-  (library
-   ; double underscore to not match the module Bs_fetch so that Fetch__Iterator is exposed
-   (name bs__fetch)
    (wrapped false)
    (modes melange)))
  (subdir
@@ -23,6 +16,6 @@
    (library
     (name webapi)
     (modes melange)
-    (libraries bs__fetch)
+    (libraries melange-fetch)
     (preprocess
      (pps melange.ppx))))))
