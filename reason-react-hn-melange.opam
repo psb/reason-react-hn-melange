@@ -19,7 +19,7 @@ depends: [
   "ocamlformat" {with-dev-setup}
   "melange-fetch" {dev}
 ]
-pi-depends: [
+pin-depends: [
     ["melange.fetch.dev" "git+https://github.com/melange-community/melange-fetch.git#master"]
 ]
 dev-repo: "git+https://github.com/psb/reason-react-hn-melange.git"
